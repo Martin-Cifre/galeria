@@ -1,6 +1,11 @@
+// PixabaySearch.tsx
 import React, { useState } from "react";
 
-const PixabaySearch: React.FC = () => {
+interface PixabaySearchProps {
+  onImages: (newImages: any[]) => void;
+}
+
+const PixabaySearch: React.FC<PixabaySearchProps> = ({ onImages }) => {
   const [query, setQuery] = useState<string>("");
   const [images, setImages] = useState<any[]>([]);
   const apiKey = "42101566-27cbcb92d259ca511cd87aac9";
@@ -13,6 +18,7 @@ const PixabaySearch: React.FC = () => {
       const response = await fetch(`${endpoint}?key=${apiKey}&q=${query}`);
       const data = await response.json();
       setImages(data.hits);
+      onImages(data.hits);
     } catch (error) {
       console.error("Error fetching images:", error);
     }
