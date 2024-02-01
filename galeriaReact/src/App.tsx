@@ -1,11 +1,11 @@
 // App.tsx
-import React, { useState } from "react";
+import React from "react";
 import PixabaySearch from "./api/fetchImagenes";
-import Resultados from "./assets/resultados/resultados";
+//import Resultados from "./assets/resultados/resultados";
 import styles from "./App.module.css";
 
 const App: React.FC = () => {
-  const [images, setImages] = useState<any[]>([]);
+  
 
   const handleImages = (newImages: any[]) => {
     setImages(newImages);
@@ -13,14 +13,12 @@ const App: React.FC = () => {
 
   return (
     <>
-      <header className={styles.header}>
-        <div>
+      <header>
+        <div className={styles.header}>
           <PixabaySearch onImages={handleImages} />
         </div>
       </header>
-      <main>
-        <Resultados images={images} />
-      </main>
+      
     </>
   );
 };

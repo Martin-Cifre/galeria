@@ -1,5 +1,7 @@
 // PixabaySearch.tsx
 import React, { useState } from "react";
+import styles from "./fetch.module.css";
+
 
 interface PixabaySearchProps {
   onImages: (newImages: any[]) => void;
@@ -25,10 +27,11 @@ const PixabaySearch: React.FC<PixabaySearchProps> = ({ onImages }) => {
   };
 
   return (
-    <div>
+    <div className={styles.header}>
       <form onSubmit={handleSearch}>
-        <label htmlFor="query">Buscar:</label>
+        <label htmlFor="query"></label>
         <input
+          placeholder="Busca tus imagenes"
           type="text"
           id="query"
           value={query}
@@ -37,7 +40,8 @@ const PixabaySearch: React.FC<PixabaySearchProps> = ({ onImages }) => {
         />
         <button type="submit">Buscar</button>
       </form>
-      <div>
+      
+      <div className={styles.imagenes}>
         {images.map((image) => (
           <img key={image.id} src={image.webformatURL} alt={image.tags} />
         ))}

@@ -13,30 +13,19 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root img {
+  border-radius: 10px;
+  margin: 0.5vw;
+  height: 50vw;
+  width: 30vw;
+  object-fit:cover;
+  
+}
+
 body {
   margin: 0;
   display: flex;
   min-width: 320px;
   min-height: 100vh;
   justify-content: center;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-  margin-left: 10px;
-}
-button:hover {
-  border-color: #fffb00;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
